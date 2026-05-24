@@ -1,23 +1,17 @@
 def substrings(sentence, dictionary)
   finalHash = {}
-  count1 = 0
-  count2 = 0
-  split1 = sentence.split("")
-  split2 = sentence.split(" ")
+  
+  
+  
 
   dictionary.each do |elm|
-    
-    if split1.include?(elm) ## if each individual character letter is in dictionary
-      count1 = split1.count(elm)
-      finalHash[elm] = count1
-    elif split2.include?(elm) ## if the words
-      count2 = split2.count(elm)
-      finalHash[elm] = count2
-    else
-
-          
-    end
+    counter = 0
+    string = sentence.gsub(/#{elm}/) {|m| counter += 1}
+    finalHash[elm] = counter
   end
+  
+
+  
 
   print finalHash
 
